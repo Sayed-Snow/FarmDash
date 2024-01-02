@@ -4,11 +4,10 @@ import { useContext, createContext, useState } from "react"
 const SidebarContext = createContext()
 
 export default function Sidebar({ children }) {
-  const [expanded, setExpanded] = useState(false)
-  
+  const [expanded, setExpanded] = useState(false) 
   return (
-    <aside className={`h-screen ${expanded ? 'w-64': 'w-[4.3rem]'} relative top-0 `}>
-      <nav className="h-full flex flex-col bg-white border-r shadow-sm">
+    <aside className={`h-screen ${expanded ? 'w-64': 'w-[4.3rem]'} fixed z-10`}>
+      <nav className="h-full flex flex-col bg-white border-r shadow-sm ">
         <div className="p-4 pb-2 flex justify-between items-center">
           <img
             src="https://img.logoipsum.com/243.svg"
@@ -60,8 +59,8 @@ export function SidebarItem({ icon, text, active, alert }) {
     <li
       className={`
         relative flex items-center py-2 px-3 my-1
-        font-medium rounded-md cursor-pointer
-        transition-colors group
+        font-medium rounded-md cursor-pointer 
+        transition-colors group 
         ${
           active
             ? "bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800"

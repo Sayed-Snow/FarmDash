@@ -121,8 +121,7 @@ import {
               color="gray"
               className="max-w-sm font-normal"
             >
-              Visualize your data in a simple way using the
-              @material-tailwind/react chart plugin.
+              Visualize your data in a simple way Sales per month
             </Typography>
           </div>
         </CardHeader>
