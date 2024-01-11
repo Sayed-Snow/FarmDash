@@ -1,24 +1,24 @@
 import React from 'react'
 
-const Statistic = () => {
+const Statistic = ({title, amount, difference}) => {
   var x = 4; 
   var colour = "green";
-  colour = x>1 ? 'text-green-600':'text-red-600'
+  colour = amount>1 ? 'text-green-600':'text-red-600'
     return (
     <div className='relative p-6 rounded-2xl bg-white shadow dark:bg-gray-800'>
       <div className="space-y-2">
         <div
           className="flex items-center space-x-2 rtl:space-x-reverse text-sm font-medium text-gray-500 dark:text-gray-200">
-            <span>Stock</span>
+            <span>{title}</span>
         </div>
 
           <div className="text-3xl">
-            192
+            {amount}
             </div>
 
             <div className={`flex items-center space-x-1 rtl:space-x-reverse text-sm font-medium ${colour}`}>
 
-            <span>32 increase</span>
+            <span>{difference} {amount > 0 ? 'increase': 'decrease'}</span>
 
             <svg className="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
             aria-hidden="true">
