@@ -1,12 +1,28 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Sidebar, { SidebarItem } from '../components/Sidebar'
 import { Calendar, Cloud, Layers2Icon, PlusCircleIcon } from 'lucide-react'
 import { ChartBarIcon } from '@heroicons/react/24/solid'
 import LineChart from '../components/Linechart'
 import Stats from '../containers/Stats'
 import PieChart from '../components/Piechart'
+import { db } from '../Firebase'
+import { getDocs,collection, query, where } from '@firebase/firestore'
 
-const Home = () => {
+
+
+const Home = ({userId}) => {
+
+useEffect(() =>{
+  async function getData(){
+    const userRef = collection(db, "users");
+    const farmRef = collection(db, "farms");
+    const q2 = query(farmRef,where("ownerUID", "==", userId))
+    const q = query(userRef,where("uid", "==", userId))
+    const querySnapshot = await getDocs(q2);
+    console.log(querySnapshot.docs[0].data())
+  }
+  getData()
+},[])
   return (
     <div className='flex'>
         <div>

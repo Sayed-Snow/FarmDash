@@ -13,7 +13,7 @@ import {
    
   const chartConfig = {
     type: "line",
-    height: 240,
+    height: 290,
     series: [
       {
         name: "Sales",

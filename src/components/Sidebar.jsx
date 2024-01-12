@@ -1,8 +1,12 @@
+import { signOut } from "@firebase/auth";
 import { MoreVertical, ChevronLast, ChevronFirst, LogOutIcon } from "lucide-react"
 import { useContext, createContext, useState } from "react"
+import { Auth } from "../Firebase";
 
 const SidebarContext = createContext()
-
+const logout = () => {
+  signOut(Auth);
+};
 export default function Sidebar({ children }) {
   const [expanded, setExpanded] = useState(false) 
   return (
@@ -44,7 +48,9 @@ export default function Sidebar({ children }) {
               <h4 className="font-semibold">John Doe</h4>
               <span className="text-xs text-gray-600">johndoe@gmail.com</span>
             </div>
-            <LogOutIcon size={20} />
+            <button onClick={logout} >
+              <LogOutIcon size={20} />
+            </button>
           </div>
         </div>
       </nav>
